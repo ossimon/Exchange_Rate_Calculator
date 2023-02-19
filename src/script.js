@@ -41,6 +41,16 @@ async function updateBox(boxId) {
             break
     }
     document.getElementById(boxToUpdateId).value = outputValue
+    updateExchangeRate(exchangeRate);
+}
+
+async function printExchangeRate() {
+    const exchangeRate = await getExchangeRate("gbp")
+    updateExchangeRate(exchangeRate)
+}
+
+function updateExchangeRate(exchangeRate) {
+    document.getElementById('exchange-rate-info2').textContent = `${exchangeRate}`
 }
 
 module.exports = {

@@ -8,7 +8,7 @@
     <link href="styles.css" rel="stylesheet">
     <script src="script.js"></script>
 </head>
-<body>
+<body onload="printExchangeRate()">
     <div class="calculator">
         <label for="send">You send</label><br>
         <div class="input-box">
@@ -22,7 +22,11 @@
             <input type="text" id="receive" name="receive" onchange="updateBox('receive')">
             <div>PLN</div>
         </div>
-        <div id="exchange-rate"></div>
+        <div class="exchange-rate-infos">
+            <div id="exchange-rate-info1" style="display: inline-block">1 GBP = </div>
+            <b id="exchange-rate-info2"></b><br><br>
+            <b id="exchange-rate-info3">No transfer fee</b>
+        </div>
     </div>
 </body>
 </html>
