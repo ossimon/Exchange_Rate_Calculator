@@ -6,13 +6,12 @@ async function getExchangeRate(currency) {
     return exchangeRate
 }
 
-async function calculateOutput(inputValue, boxId) {
+function calculateOutput(inputValue, exchangeRate, boxId) {
     const numberValue = Number(inputValue)
     if (isNaN(numberValue)) {
         return 'Your input should be a number!'
     }
 
-    const exchangeRate = await getExchangeRate("gbp")
     let outputValue
     switch (boxId) {
         case 'send':
@@ -29,7 +28,8 @@ async function calculateOutput(inputValue, boxId) {
 
 async function updateBox(boxId) {
     const inputValue = document.getElementById(boxId).value
-    const outputValue = await calculateOutput(inputValue, boxId)
+    const exchangeRate = await getExchangeRate("gbp")
+    const outputValue = calculateOutput(inputValue, exchangeRate, boxId)
 
     let boxToUpdateId
     switch (boxId) {
@@ -41,4 +41,10 @@ async function updateBox(boxId) {
             break
     }
     document.getElementById(boxToUpdateId).value = outputValue
+}
+
+module.exports = {
+    getExchangeRate: getExchangeRate,
+    calculateOutput: calculateOutput,
+    updateBox: updateBox
 }

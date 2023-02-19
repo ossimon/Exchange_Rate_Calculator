@@ -1,0 +1,23 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "This project is (will be...) a simple exchange rate calculator web application written in JavaScript.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ossimon/Exchange_Rate_Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ossimon/Exchange_Rate_Calculator/issues"
+  },
+  "homepage": "https://github.com/ossimon/Exchange_Rate_Calculator#readme",
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
