@@ -1,0 +1,48 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #22c1c3, #fdbb2d);
+}
+
+.calculator {
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+label {
+    margin: 10px;
+    margin-left: 5px;
+}
+
+img {
+    width: 30px;
+    height: 17px;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+input {
+    width: 145px;
+    height: 30px;
+    background-color: whitesmoke;
+    border: none;
+}
+
+.input-box {
+    width: 245px;
+    height: 32px;
+    margin: 5px;
+    margin-top: 0px;
+    background-color: whitesmoke;
+    border: 1px solid;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

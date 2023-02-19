@@ -9,7 +9,7 @@ async function getExchangeRate(currency) {
 function calculateOutput(inputValue, exchangeRate, boxId) {
     const numberValue = Number(inputValue)
     if (isNaN(numberValue)) {
-        return 'Your input should be a number!'
+        return 'Please, input a number!'
     }
 
     let outputValue

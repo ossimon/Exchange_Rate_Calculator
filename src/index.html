@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="styles.css" rel="stylesheet">
     <script src="script.js"></script>
 </head>
 <body>
     <div class="calculator">
-        <label for="send">You send (in GBP)</label><br>
-        <input type="text" id="send" name="send" onchange="updateBox('send')"><br><br>
-        <label for="receive">They receive (in PLN)</label><br>
-        <input type="text" id="receive" name="receive" onchange="updateBox('receive')"><br><br>
+        <label for="send">You send</label><br>
+        <div class="input-box">
+            <img src="../resources/Flag_of_the_United_Kingdom.png">
+            <input type="text" id="send" name="send" onchange="updateBox('send')">
+            <div>GBP</div>
+        </div>
+        <label for="receive">They receive</label><br>
+        <div class="input-box">
+            <img src="../resources/Flag_of_Poland.png">
+            <input type="text" id="receive" name="receive" onchange="updateBox('receive')">
+            <div>PLN</div>
+        </div>
+        <div id="exchange-rate"></div>
     </div>
 </body>
 </html>

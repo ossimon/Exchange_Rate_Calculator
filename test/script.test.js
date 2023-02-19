@@ -1,4 +1,4 @@
-const script = require('../script')
+const script = require('../src/script')
 
 describe('Calculating output', () => {
     test('Calculates received amount correctly', () => {
@@ -16,7 +16,7 @@ describe('Calculating output', () => {
     test('Handles invalid input', () => {
         expect(
             script.calculateOutput('one', 2, 'receive')
-            ).toBe('Your input should be a number!')
+            ).toBe('Please, input a number!')
     })
 })
 
