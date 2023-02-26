@@ -7,7 +7,7 @@ describe('Calculating output', () => {
             ).toBe('9.26')
     })
     
-    test('Calculates sent amountcorrectly', () => {
+    test('Calculates sent amount correctly', () => {
         expect(
             script.calculateOutput('4.63', 2, 'receive')
             ).toBe('2.31')
@@ -16,7 +16,7 @@ describe('Calculating output', () => {
     test('Handles invalid input', () => {
         expect(
             script.calculateOutput('one', 2, 'receive')
-            ).toBe('Please, input a number!')
+            ).toBe('Please input a number!')
     })
 })
 

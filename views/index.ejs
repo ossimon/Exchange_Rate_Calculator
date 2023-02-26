@@ -6,25 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GBR to PLN calculator</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="script.js"></script>
 </head>
-<body onload="printExchangeRate()">
+<body>
     <div class="calculator">
-        <label for="send">You send</label><br>
-        <div class="input-box">
-            <img src="resources/Flag_of_the_United_Kingdom.png">
-            <input type="text" id="send" name="send" onchange="updateBox('send')">
-            <div>GBP</div>
-        </div>
-        <label for="receive">They receive</label><br>
-        <div class="input-box">
-            <img src="resources/Flag_of_Poland.png">
-            <input type="text" id="receive" name="receive" onchange="updateBox('receive')">
-            <div>PLN</div>
-        </div>
+        <form action="/gbp-to-pln" method="POST">
+            <label for="send">You send</label><br>
+            <div class="input-box">
+                <img src="resources/Flag_of_the_United_Kingdom.png">
+                <input type="text" name="send" value="<%= locals.send %>">
+                <div>GBP</div>
+            </div>
+        </form>
+        <form action="/pln-to-gbp" method="POST">
+            <label for="receive">They receive</label><br>
+            <div class="input-box">
+                <img src="resources/Flag_of_Poland.png">
+                <input type="text" name="receive" value="<%= locals.receive %>">
+                <div>PLN</div>
+            </div>
+        </form>
+
         <div class="exchange-rate-infos">
             <div id="exchange-rate-info1" style="display: inline-block">1 GBP = </div>
-            <b id="exchange-rate-info2"></b><br><br>
+            <b id="exchange-rate-info2">
+                <%= locals.exchangeRate %>
+            </b></b><br><br>
             <b id="exchange-rate-info3">No transfer fee</b>
         </div>
     </div>

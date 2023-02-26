@@ -6,18 +6,18 @@ async function getExchangeRate(currency) {
     return exchangeRate
 }
 
-function calculateOutput(inputValue, exchangeRate, boxId) {
+function calculateOutput(inputValue, exchangeRate, inputCurrency) {
     const numberValue = Number(inputValue)
     if (isNaN(numberValue)) {
-        return 'Please, input a number!'
+        return 'Please input a number!'
     }
 
     let outputValue
-    switch (boxId) {
-        case 'send':
+    switch (inputCurrency) {
+        case 'gbp':
             outputValue = numberValue * exchangeRate
             break
-        case 'receive':
+        case 'pln':
             outputValue = numberValue / exchangeRate
             break
     }
@@ -26,35 +26,7 @@ function calculateOutput(inputValue, exchangeRate, boxId) {
     return outputValue.toString()
 }
 
-async function updateBox(boxId) {
-    const inputValue = document.getElementById(boxId).value
-    const exchangeRate = await getExchangeRate("gbp")
-    const outputValue = calculateOutput(inputValue, exchangeRate, boxId)
-
-    let boxToUpdateId
-    switch (boxId) {
-        case 'send':
-            boxToUpdateId = 'receive'
-            break
-        case 'receive':
-            boxToUpdateId = 'send'
-            break
-    }
-    document.getElementById(boxToUpdateId).value = outputValue
-    updateExchangeRate(exchangeRate);
-}
-
-async function printExchangeRate() {
-    const exchangeRate = await getExchangeRate("gbp")
-    updateExchangeRate(exchangeRate)
-}
-
-function updateExchangeRate(exchangeRate) {
-    document.getElementById('exchange-rate-info2').textContent = `${exchangeRate}`
-}
-
 module.exports = {
     getExchangeRate: getExchangeRate,
-    calculateOutput: calculateOutput,
-    updateBox: updateBox
+    calculateOutput: calculateOutput
 }

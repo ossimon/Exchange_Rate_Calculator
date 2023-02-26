@@ -7,8 +7,18 @@ app.use(express.urlencoded({ extended: true }))
 
 app.set('view engine', 'ejs')
 
-app.get("/gbr-to-pln-calculator", (req, res) => {
-    res.render('index')
+const calculatorRouter = require('./routes/calculator')
+app.use('/calculator', calculatorRouter)
+
+const gbpToPln = require('./routes/gbp-to-pln')
+app.use('/gbp-to-pln', gbpToPln)
+
+const plnToGbp = require('./routes/pln-to-gbp')
+app.use('/pln-to-gbp', plnToGbp)
+
+app.get("/", (req, res) => {
+    res.redirect('/calculator')
 })
+
 
 app.listen(port)
