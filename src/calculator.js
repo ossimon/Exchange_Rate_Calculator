@@ -1,5 +1,10 @@
 async function getExchangeRate(currency) {
-    let response = await fetch('http://api.nbp.pl/api/exchangerates/rates/a/' + currency + '/?format=json')
+    // Retrieving exchange rate info from NBP API
+    let response = await fetch('http://api.nbp.pl/api/exchangerates/rates/a/' + currency + '/?format=json/')
+    if (!response.ok) {
+        return 'Can\'t get exchange rate!'
+    }
+    // Exchange rate extraction
     let data = await response.json()
     let exchangeRate = data.rates[0].mid
     
@@ -7,11 +12,15 @@ async function getExchangeRate(currency) {
 }
 
 function calculateOutput(inputValue, exchangeRate, inputCurrency) {
+    // Analysing user input 
+    if (exchangeRate == 'Can\'t get exchange rate!') {
+        return exchangeRate
+    }
     const numberValue = Number(inputValue)
     if (isNaN(numberValue)) {
         return 'Please input a number!'
     }
-
+    // Calculating the output value
     let outputValue
     switch (inputCurrency) {
         case 'gbp':
